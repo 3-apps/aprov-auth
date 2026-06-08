@@ -1,0 +1,6 @@
+@_3Apps.AprovCreditCards.Auth_HostAddress = http://localhost:5106
+
+GET {{_3Apps.AprovCreditCards.Auth_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
