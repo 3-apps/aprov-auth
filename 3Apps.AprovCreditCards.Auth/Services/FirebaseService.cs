@@ -13,7 +13,8 @@ public class FirebaseService(FirebaseAuth firebaseAuth) : IFirebaseService
         }
         catch (FirebaseAuthException ex) when (ex.AuthErrorCode == AuthErrorCode.UserNotFound)
         {
-            var user = await firebaseAuth.CreateUserAsync(new UserRecordArgs { Email = email });
+            var name = email.Contains("@") ? email.Split("@")[0] : email;
+            var user = await firebaseAuth.CreateUserAsync(new UserRecordArgs { Email = email, DisplayName = name, EmailVerified = true });
             return (user, true);
         }
     }
