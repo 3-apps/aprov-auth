@@ -17,7 +17,7 @@ public class EmailService(ISendGridClient sendGridClient, IOptions<SendGridOptio
             From = new EmailAddress(_settings.FromEmail, _settings.FromName),
             TrackingSettings = new TrackingSettings
             {
-                ClickTracking = new ClickTracking { Enable = false, EnableText = false }
+                ClickTracking = new ClickTracking { Enable = true, EnableText = true }
             },
             Asm = new ASM
             {
