@@ -54,6 +54,8 @@ public class OtpService(IDistributedCache cache, IOptions<OtpOptions> options) :
         return true;
     }
 
+    public Task InvalidateAsync(string email) => cache.RemoveAsync(CacheKey(email));
+
     private async Task<OtpCacheEntry?> GetEntryAsync(string email)
     {
         var json = await cache.GetStringAsync(CacheKey(email));

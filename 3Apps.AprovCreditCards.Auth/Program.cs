@@ -14,7 +14,7 @@ builder.Services.AddApplicationInsightsTelemetry(options =>
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddFirebase(builder.Configuration);
-builder.Services.AddSendGrid(builder.Configuration);
+builder.Services.AddJarvis(builder.Configuration);
 builder.Services.AddRedisCache(builder.Configuration);
 builder.Services.Configure<OtpOptions>(builder.Configuration.GetSection("Otp"));
 builder.Services.AddSingleton<IOtpService, OtpService>();
